@@ -34,6 +34,10 @@
   margin-top: 8rem;
 }
 
+@font-face {
+  font-family: main;
+  src: url(fonts/Cairo-Regular.ttf);
+}
 .secondary-heading {
   font-size: 1.2rem;
   margin-top: -2rem;
@@ -55,10 +59,6 @@
   box-sizing: inherit;
 }
 
-@font-face {
-  font-family: main;
-  src: url(../../fonts/Cairo-Regular.ttf);
-}
 html {
   background-color: #0069d9;
   color: gray;
