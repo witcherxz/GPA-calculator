@@ -68,20 +68,17 @@ html {
 }
 @media screen and (max-width: 1200px) {
   html {
-    margin: 0 20rem;
-    font-size: 100%;
+    margin: 0 10rem;
   }
 }
 @media screen and (max-width: 900px) {
   html {
-    margin: 0 11rem;
-    font-size: 100%;
+    margin: 0 4rem;
   }
 }
 @media screen and (max-width: 500px) {
   html {
-    margin: 0 1rem;
-    font-size: 100%;
+    margin: 0 0.5rem;
   }
 }
 

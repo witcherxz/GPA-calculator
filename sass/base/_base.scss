@@ -14,16 +14,13 @@ html{
     direction: rtl;
     margin: 0 20rem;
     @media screen and (max-width: 1200px) {
-        margin: 0 20rem;
-        font-size: 100%;
+        margin: 0 10rem;
     }
     @media screen and (max-width: 900px) {
-        margin: 0 11rem;
-        font-size: 100%;
+        margin: 0 4rem;
     }
     @media screen and (max-width: 500px) {
-        margin: 0 1rem;
-        font-size: 100%;
+        margin: 0 .5rem;
     }
     
 
