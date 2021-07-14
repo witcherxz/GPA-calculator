@@ -128,18 +128,6 @@ html {
   margin: 0 auto;
 }
 
-.gpa-type {
-  margin-top: -2rem;
-}
-
-.subject-section {
-  margin-top: -2.9rem;
-}
-
-.resulte-section {
-  margin-top: -2rem;
-}
-
 .flex-card {
   display: flex;
   justify-content: space-between;
@@ -251,7 +239,7 @@ html {
 }
 
 .card {
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   padding: 3rem 2rem;
   border-radius: 1rem;
   background-color: #fff;
@@ -261,6 +249,11 @@ html {
   content: "";
   display: table;
   clear: both;
+}
+@media screen and (max-width: 500px) {
+  .card {
+    padding: 3rem 1.5rem;
+  }
 }
 
 .radios {

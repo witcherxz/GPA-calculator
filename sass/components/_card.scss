@@ -1,7 +1,10 @@
 .card{
     @include clearfix;
-    margin: 2rem 0;
+    margin: .5rem 0;
     padding: 3rem 2rem;
+    @media screen and (max-width : 500px) {
+        padding: 3rem 1.5rem;
+    }
     border-radius: 1rem;
     background-color: $card-color-background;
     box-shadow: 5px 5px 30px rgb(0 0 0 / 20%);
