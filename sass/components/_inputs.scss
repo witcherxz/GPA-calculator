@@ -24,9 +24,18 @@
 .flex{
     &--left{
         margin-left: .5rem !important;
+        @media screen and (max-width:700px) {
+            margin-left: 0 !important;
+            
+        }
+
     }
     &--right{
         margin-right: .5rem !important;
+        @media screen and (max-width:700px) {
+            margin-right: 0 !important;
+            
+        }
     }
 }
 .inputs{
@@ -52,7 +61,7 @@
             right: 0;
         }
         &--2{
-            top: 6rem;            
+            top: 5rem;            
             right: 0;
         }
     }
