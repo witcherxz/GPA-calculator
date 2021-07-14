@@ -61,7 +61,7 @@
 
 html {
   background-color: #0069d9;
-  color: gray;
+  color: #555555;
   font-family: "Cairo";
   direction: rtl;
   margin: 0 20rem;
@@ -69,19 +69,19 @@ html {
 @media screen and (max-width: 1200px) {
   html {
     margin: 0 20rem;
-    font-size: 70%;
+    font-size: 100%;
   }
 }
 @media screen and (max-width: 900px) {
   html {
     margin: 0 11rem;
-    font-size: 70%;
+    font-size: 100%;
   }
 }
 @media screen and (max-width: 500px) {
   html {
     margin: 0 3rem;
-    font-size: 70%;
+    font-size: 100%;
   }
 }
 
