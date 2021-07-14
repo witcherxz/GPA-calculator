@@ -78,7 +78,7 @@ html {
 }
 @media screen and (max-width: 500px) {
   html {
-    margin: 0 0.5rem;
+    margin: 0 1rem;
   }
 }
 
@@ -197,11 +197,6 @@ html {
 .inputs__label--2 {
   top: 6rem;
   right: 0;
-}
-@media screen and (max-width: 1200px) {
-  .inputs__label--2 {
-    top: 7rem;
-  }
 }
 
 .input {
