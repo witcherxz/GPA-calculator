@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+@font-face {
+    font-family: main;
+    src: url(../../fonts/Cairo-Regular.ttf);
+}
+
+html{
+    background-color: $main-color-background;
+    color: $main-color-text;
+    font-family: "main";
+    direction: rtl;
+    margin: 0 20rem;
+    @media screen and (max-width: 1200px) {
+        margin: 0 20rem;
+        font-size: 70%;
+    }
+    @media screen and (max-width: 900px) {
+        margin: 0 11rem;
+        font-size: 70%;
+    }
+    @media screen and (max-width: 500px) {
+        margin: 0 3rem;
+        font-size: 70%;
+    }
+    
+
+}

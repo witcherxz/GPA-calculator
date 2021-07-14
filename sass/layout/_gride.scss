@@ -1,0 +1,41 @@
+.row{
+    @include clearfix;
+    max-width: $grid-width;
+    margin: 0 auto;
+    display: block;
+
+    &:not(:last-child){
+        margin-bottom: $vertical-gutter;
+    }
+
+    & [class^="col-"]{
+        @include grid-gutter;
+        float: left;
+    }
+    &:not(:last-child){
+        margin-bottom: $horizontal-gutter;
+    }
+   
+    .col-one-two{
+        width: calc((100% - #{$horizontal-gutter}) / 2);
+
+    }
+    .col-one-three{
+        width: calc((100% - #{$horizontal-gutter} * 2) / 3);
+    }
+    .col-two-three{
+        width: calc((100% - #{$horizontal-gutter} * 2 )* 2 / 3 + #{$horizontal-gutter} );
+
+    }
+    .col-one-four{
+        width: calc((100% - #{$horizontal-gutter} * 3) / 4);
+        
+    }
+    .col-two-four{
+        width: calc((100% - #{$horizontal-gutter} * 3) * 2 / 4 + #{$horizontal-gutter});
+    } 
+    .col-three-four{
+        width: calc((100% - #{$horizontal-gutter} * 3) * 3 / 4 + #{$horizontal-gutter} * 2);
+    }
+    
+}

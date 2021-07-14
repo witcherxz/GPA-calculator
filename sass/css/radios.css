@@ -1,0 +1,22 @@
+.radios {
+  width: 50%;
+}
+
+.radio {
+  background: #fff;
+  height: 100%;
+  display: inline-block;
+  width: 22rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.radio-button {
+  display: none;
+}/*# sourceMappingURL=radios.css.map */

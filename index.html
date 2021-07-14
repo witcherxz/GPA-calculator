@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/index.js" defer></script>
+
+    <title>GPA Calculator</title>
+</head>
+<body>
+    <div class="main">
+        <div class="flex-card">
+            <div class="flex-card--1">
+                <div class="card card--input flex--right">
+                    <div class="u-center-text">
+                        <div class="gpa">
+                            <div class="inputs">
+                                <input type="number" id="prevhour" class="input inputs--prevhour" placeholder="عدد الساعات المجتازة">
+                                <label for="prevhour" class="inputs__label inputs__label--1">عدد الساعات المجتازة</label>
+                                <input type="number" id="GPA" class= "input inputs--GPA" placeholder="المعدل التراكمي">
+                                <label for="GPA" class="inputs__label inputs__label--2">المعدل التراكمي</label>
+                                <!-- <input type="number" id="points" class"inputs inputs--point" placeholder="النقاط">
+                                <label for="points" class="inputs__label inputs__label--3">النقاط</label> -->
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>
+            <div class="flex-card--2">
+                <div class="card card--input flex--left">
+                    <div class="u-center-text">
+                        <div class="gpa-type">
+                            <h2 class="secondary-heading u-margin-bottom-small">
+                                نظام المعدل
+                            </h2>
+                            <div class="radios">
+                                <input type="radio" id="rad4" name="gpa-type" class="radio-button radio-button--right">
+                                <label for="rad4" class="radio radio--right">
+                                   <p>4.00</p>
+                                </label>
+                                <input type="radio" id="rad5" name="gpa-type" class="radio-button radio-button--left" checked>
+                                <label for="rad5" class="radio radio--left">
+                                   <p>5.00</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <div class="subject-section">
+            <div class="card">
+                <div class="inputForm">
+                    <div class="heading-row">
+                        <div class="input-row input-row--heading">
+
+                            <div class="subject-name__container">
+                                <h3 class="tertiary-heading input-heading subject-name">اسم المادة</h3>
+                            </div>
+
+                            <div class="grade__container">
+                                <h3 class="tertiary-heading input-heading grade">التقدير</h3>
+                            </div>
+
+                            <div class="credit__container">
+                                <h3 class="tertiary-heading input-heading credit">الساعات</h3>
+                            </div>
+
+                        </div>
+
+                        </div>
+                        <div class="input-row" id="inputRow">
+
+                            <div class="subject-name__container ">
+                                <input type="text" class="input subject-name__input">
+                            </div>
+
+                            <div class="grade__container">
+                                <input type="number" class="input grade__input" >
+                            </div>
+
+                            <div class="credit__container">
+                                <input type="number" class="input credit__input" >
+                            </div>
+                        </div>
+
+                        <div class="input-row" id="inputRow">
+
+                            <div class="subject-name__container ">
+                                <input type="text" class="input subject-name__input">
+                            </div>
+
+                            <div class="grade__container">
+                                <input type="number" class="input grade__input" >
+                            </div>
+
+                            <div class="credit__container">
+                                <input type="number" class="input credit__input" >
+                            </div>
+                        </div>
+
+                        <div class="input-row" id="inputRow">
+
+                            <div class="subject-name__container ">
+                                <input type="text" class="input subject-name__input">
+                            </div>
+
+                            <div class="grade__container">
+                                <input type="number" class="input grade__input" >
+                            </div>
+
+                            <div class="credit__container">
+                                <input type="number" class="input credit__input" >
+                            </div>
+                        </div>
+
+                        <div class="input-row" id="inputRow">
+
+                            <div class="subject-name__container ">
+                                <input type="text" class="input subject-name__input">
+                            </div>
+
+                            <div class="grade__container">
+                                <input type="number" class="input grade__input" >
+                            </div>
+
+                            <div class="credit__container">
+                                <input type="number" class="input credit__input" >
+                            </div>
+                        </div>
+
+                        <div class="input-row" id="inputRow">
+
+                            <div class="subject-name__container ">
+                                <input type="text" class="input subject-name__input">
+                            </div>
+
+                            <div class="grade__container">
+                                <input type="number" class="input grade__input" >
+                            </div>
+
+                            <div class="credit__container">
+                                <input type="number" class="input credit__input" >
+                            </div>
+                        </div>
+
+                        <div class="input-row" id="inputRow">
+
+                            <div class="subject-name__container ">
+                                <input type="text" class="input subject-name__input">
+                            </div>
+
+                            <div class="grade__container">
+                                <input type="number" class="input grade__input" >
+                            </div>
+
+                            <div class="credit__container">
+                                <input type="number" class="input credit__input" >
+                            </div>
+                        </div>
+                    </div>
+                     <div class="btns">
+                         <button class="button button--green" id="calcBtn">احسب</button>
+                         <button class="button button--blue" id="addInputRow">أضف مادة</button>
+                     </div>
+                </div> 
+            </div>
+
+            <div class="resulte-section">
+                <div class="flex-card">
+                    <div class="flex-card--1">
+                        <div class="card card--input flex--right">
+                            <div class="u-center-text">
+                                <h2 class="secondary-heading">المعدل الفصلي</h2>
+                                <h2 class="u-margin-top-small resultes" id="termResulte"></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-card--2">
+                        <div class="card card--input flex--left">
+                            <div class="u-center-text">
+                                <h2 class="secondary-heading">المعدل التراكمي</h2>
+                                <h2 class="u-margin-top-small resultes" id="resulte"></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    
+</body>
+
+</html>

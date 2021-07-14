@@ -1,0 +1,53 @@
+.radios{
+ width: 100%;
+ margin-top: 2rem;
+
+
+}
+.radio{
+    font-size: 1.1rem;
+    background: #fff;
+    height: 2.5rem;
+    display: inline-block;
+    width: 35%; 
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 -2px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+
+    p{
+        margin-top: 0.1rem;
+    }
+
+    &--left{
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+    }
+    &--right{
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    &-button{
+        display: none;
+    }
+    &-button--right:checked + &--right{
+        background: $primary-color;
+        border: 2px $primary-color solid;
+        color: white;
+    }
+    &-button--left:checked + &--left{
+        background: $primary-color;
+        border: 2px $primary-color solid;
+        color: white;
+    }
+
+    
+
+}

@@ -1,0 +1,42 @@
+
+.input-row{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    & > div{
+        text-align: center;
+    }
+}
+.subject-name{
+
+    &__container{
+        width: 50%;
+    }    
+    &__input{
+        width: 90%;
+    }
+}
+
+.grade{
+    &__container{
+        width: 20%;
+    }
+    &__input{
+        width: 80%;
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+}
+
+.credit{
+    &__container{
+        width: 20%;
+    }
+    &__input{
+        width: 80%;
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+}
