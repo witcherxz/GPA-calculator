@@ -38,6 +38,10 @@
   font-family: main;
   src: url("https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap");
 }
+.primary-heading {
+  display: none;
+}
+
 .secondary-heading {
   font-size: 1.2rem;
   margin-top: -2rem;
