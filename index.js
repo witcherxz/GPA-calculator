@@ -1,5 +1,3 @@
-// const { basename } = require("path/posix");
-
 const gpaM4 = 4 / 100; // GPA multiplayer for scale 4
 const gpaM5 = 5 / 100; // GPA multiplayer for scale 5
 
@@ -35,7 +33,7 @@ calcBtn.addEventListener("click", () => {
   if (inputGPA.value !== "" && inputHours.value !== "") {
     prevGPA = Number(inputGPA.value);
     prevHours = Number(inputHours.value);
-    
+
     for (let i = 0; i < gradeInputs.length; i++) {
       if (gradeInputs[i].value !== "" && creditInputs[i].value !== "") {
         let grade = Number(gradeInputs[i].value);
