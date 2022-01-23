@@ -1,106 +1,102 @@
-const gpaM4 = 4/100; // GPA multiplayer for scale 4
-const gpaM5 = 5/100; // GPA multiplayer for scale 5
+// const { basename } = require("path/posix");
 
-const prevhours = document.querySelector('#prevhour');
-const gpa = document.querySelector('#GPA');
+const gpaM4 = 4 / 100; // GPA multiplayer for scale 4
+const gpaM5 = 5 / 100; // GPA multiplayer for scale 5
+
+const inputHours = document.querySelector("#prevhour");
+const inputGPA = document.querySelector("#GPA");
 
 // Radio form
-const rad4 = document.querySelector('#rad4'); // Radio 4.00
-const rad5 = document.querySelector('#rad5'); // Radio 5.00
+const rad4 = document.querySelector("#rad4"); // Radio 4.00
+const rad5 = document.querySelector("#rad5"); // Radio 5.00
 
+const calcBtn = document.querySelector("#calcBtn");
+const addNewRow = document.querySelector("#addInputRow");
+const inputForm = document.querySelector(".inputForm");
+const inputRow = document.querySelector("#inputRow");
 
+const resulte = document.querySelector("#resulte");
+const termResulte = document.querySelector("#termResulte");
 
-const calcBtn = document.querySelector('#calcBtn');
-const addNewRow = document.querySelector('#addInputRow');
-const inputForm = document.querySelector('.inputForm');
-const inputRow = document.querySelector('#inputRow');
+// Calculate Event
+calcBtn.addEventListener("click", () => {
+  const gradeInputs = document.querySelectorAll(".grade__input");
+  const creditInputs = document.querySelectorAll(".credit__input");
 
+  let base = rad4.checked ? gpaM4 : gpaM5;
+  let prevGPA = 0;
+  let prevHours = 0;
+  let semesterGPA = 0;
+  let currentHours = 0;
+  let cumulativeGPA = 0;
 
-const resulte = document.querySelector('#resulte');
-const termResulte = document.querySelector('#termResulte');
+  let subjects = [];
 
-let newGPA= 0;
-let newHours= 0 ;
-let startHours = 0;
-let termHours = 0 ;
-let termGPA = 0;
-
-
-let grades = [0];
-let credits = [0];
-
-
-// NOTE: Calculate Event
-calcBtn.addEventListener('click',function(){
-    const gradeInputs = document.querySelectorAll('.grade__input');
-    const creditInputs = document.querySelectorAll('.credit__input');
-
-    let selectedType = (rad4.checked) ? gpaM4 : gpaM5;
-
-    if(gpa.value !== '' && prevhours.value !== '') { 
-        newGPA = Number(gpa.value) ;
-        newHours = Number(prevhours.value);
-        startHours = newHours;
-        startGPA = newGPA;
-    }
+  if (inputGPA.value !== "" && inputHours.value !== "") {
+    prevGPA = Number(inputGPA.value);
+    prevHours = Number(inputHours.value);
+    
     for (let i = 0; i < gradeInputs.length; i++) {
-        if(gpa.value !== '' && prevhours.value !== '' && gradeInputs[i].value !== '' && creditInputs[i].value !== ''){
-            gpaCalculator(
-                newGPA,
-                newHours,
-                gradeInputs[i].value,
-                creditInputs[i].value,
-                selectedType
-            );
-        }
+      if (gradeInputs[i].value !== "" && creditInputs[i].value !== "") {
+        let grade = Number(gradeInputs[i].value);
+        let credit = Number(creditInputs[i].value);
+        subjects.push({ grade: grade, credit: credit });
+        currentHours += credit;
+      }
     }
 
-    resulte.textContent = Math.round( newGPA * 1000) / 1000;
-    termResulte.textContent = Math.round( termGPA * 1000) / 1000;
+    semesterGPA = semesterGpaCalculator(subjects, currentHours, base);
+    cumulativeGPA = cumulativeGPACalculator(
+      prevGPA,
+      prevHours,
+      semesterGPA,
+      currentHours,
+      base
+    );
+  }
+
+  resulte.textContent = Math.round(cumulativeGPA * 100) / 100;
+  termResulte.textContent = Math.round(semesterGPA * 100) / 100;
 });
 
-//NOTE: Add new input row Event
-function newRow(){
-    const newChild = inputRow.cloneNode(true);
-    const newChildFields = newChild.querySelectorAll('input');
-    for (let i = 0; i < newChildFields.length; i++) {
-        newChildFields[i].value = '';
-    }
-    inputForm.appendChild(newChild);
+//Add new input row Event
+addNewRow.addEventListener("click", () => {
+  const newChild = inputRow.cloneNode(true);
+  const newChildFields = newChild.querySelectorAll("input");
+  for (let i = 0; i < newChildFields.length; i++) {
+    newChildFields[i].value = "";
+  }
+  inputForm.appendChild(newChild);
+});
+
+// Get the credit of the grade
+function toCredit(grade) {
+  let gradBase = Math.floor(grade / 10) * 10;
+  let roundedGrade = grade % 10 >= 5 ? gradBase + 10 : gradBase + 5;
+  roundedGrade = roundedGrade > 100 ? 100 : roundedGrade;
+
+  return roundedGrade;
 }
 
-addNewRow.addEventListener('click', newRow);
+function semesterGpaCalculator(subjects, hours, base) {
+  let semesterGPA = 0;
+  let points = 0;
 
-//NOTE: Calculation Section
-function roundGrade(grade) {
-    
-    let gradBase = Math.floor(grade / 10) * 10 
-    let roundedGrade = ( grade % 10 ) >= 5 ? ( gradBase + 10 ) : ( gradBase + 5 ) ;
-    roundedGrade = (roundedGrade) > 100 ? 100 : roundedGrade; 
-    
-    return roundedGrade;
+  subjects.forEach((subject) => {
+    grade = toCredit(subject["grade"]);
+
+    credit = subject["credit"];
+    point = grade * base;
+    points += Math.floor(point * credit);
+  });
+  semesterGPA = points / hours;
+  return semesterGPA;
 }
 
-function gpaCalculator( gpa, prevhour, grade, credit, gpaMultiplayer) {
-    grade = Number(grade);
-    credit = Number(credit);
-    
-    grade = roundGrade(grade);
-    let gpaPoints = (gpa / gpaMultiplayer) * prevhour;
-    let subjectPoints = grade * credit;
+function cumulativeGPACalculator(prevGPA, prevhours, currentGPA, currenthours) {
+  let totalHours = prevhours + currenthours;
+  let resultGPA =
+    (prevGPA * prevhours + currentGPA * currenthours) / totalHours;
 
-    let totalHours = credit + prevhour;
-    let totalPoints = gpaPoints + subjectPoints;
-
-    let totalGpa = (totalPoints / ( totalHours )) * gpaMultiplayer;
-    termHours = totalHours - startHours;
-    let startGPAPoints = (startGPA / gpaMultiplayer) * startHours; 
-    let startPoints = totalPoints - startGPAPoints;
-    termGPA = ((startPoints)/ termHours) * gpaMultiplayer;
-    newGPA = totalGpa;
-    newHours =totalHours;
-
+  return resultGPA;
 }
-
-
-
